@@ -1,0 +1,401 @@
+// Component-specific variables
+$emerald-100: #d1fae5;
+$emerald-600: #059669;
+$gray-50: #f9fafb;
+$gray-300: #d1d5db;
+$gray-500: #6b7280;
+$gray-600: #4b5563;
+$gray-700: #374151;
+$gray-900: #111827;
+
+// Component-specific mixins
+@mixin gradient-bg {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+}
+
+@mixin section-padding {
+  padding: 80px 0;
+  
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+}
+
+@mixin card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: 1px solid #e5e7eb;
+}
+
+@mixin btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+  background-color: $emerald-600;
+  color: white;
+
+  &:hover {
+    background-color: #047857;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.container {
+  min-height: 100vh;
+  background-color: $gray-50;
+}
+
+.hero {
+  @include gradient-bg;
+  color: white;
+  @include section-padding;
+
+  .content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @media (min-width: 640px) {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .heroContent {
+      text-align: center;
+
+      .heroIcon {
+        width: 4rem;
+        height: 4rem;
+        color: white;
+        margin: 0 auto 1.5rem;
+      }
+
+      .heroTitle {
+        font-size: 2.25rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+
+        @media (min-width: 768px) {
+          font-size: 3rem;
+        }
+      }
+
+      .heroSubtitle {
+        font-size: 1.25rem;
+        color: $emerald-100;
+        max-width: 48rem;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.eventsSection {
+  @include section-padding;
+
+  .sectionContent {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @media (min-width: 640px) {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 3rem;
+
+      @media (min-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+.calendarSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .calendarHeader {
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $gray-900;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: $gray-600;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .calendarContainer {
+    @include card;
+    padding: 1.5rem;
+
+    :global(.react-calendar) {
+      width: 100%;
+      border: none;
+      font-family: inherit;
+
+      .react-calendar__tile {
+        &.event-date {
+          background-color: $emerald-600 !important;
+          color: white !important;
+          border-radius: 50% !important;
+        }
+      }
+    }
+  }
+
+  .legend {
+    @include card;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+
+    h3 {
+      font-weight: 600;
+      color: $gray-900;
+      margin-bottom: 0.5rem;
+    }
+
+    .legendItems {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .legendItem {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .legendColor {
+          width: 1rem;
+          height: 1rem;
+          border-radius: 0.25rem;
+
+          &.eventColor {
+            background-color: $emerald-600;
+          }
+
+          &.noEventColor {
+            background-color: $gray-300;
+          }
+        }
+
+        .legendText {
+          font-size: 0.875rem;
+          color: $gray-700;
+        }
+      }
+    }
+  }
+}
+
+.eventDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .detailsHeader {
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $gray-900;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .eventCard {
+    @include card;
+    padding: 2rem;
+
+    .eventHeader {
+      margin-bottom: 1.5rem;
+
+      h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $gray-900;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        color: $gray-600;
+      }
+    }
+
+    .eventInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+
+      .infoItem {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+
+        .icon {
+          width: 1.25rem;
+          height: 1.25rem;
+          color: $emerald-600;
+        }
+
+        .text {
+          color: $gray-700;
+        }
+      }
+    }
+
+    .signupButton {
+      @include btn-primary;
+      width: 100%;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .stayTuned {
+      text-align: center;
+      padding: 1rem 0;
+
+      .mainText {
+        color: $gray-600;
+        font-size: 1.125rem;
+      }
+
+      .subText {
+        font-size: 0.875rem;
+        color: $gray-500;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  .expectationCard {
+    @include card;
+    padding: 1.5rem;
+
+    h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: $gray-900;
+      margin-bottom: 1rem;
+    }
+
+    .expectationList {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      color: $gray-700;
+
+      .expectationItem {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+
+        .bullet {
+          color: $emerald-600;
+        }
+      }
+    }
+  }
+}
+
+.scheduleSection {
+  @include section-padding;
+  background-color: white;
+
+  .scheduleContent {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+
+    @media (min-width: 640px) {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .scheduleTitle {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: $gray-900;
+      margin-bottom: 1.5rem;
+    }
+
+    .scheduleDescription {
+      font-size: 1.125rem;
+      color: $gray-600;
+      margin-bottom: 2rem;
+    }
+
+    .scheduleCard {
+      @include card;
+      padding: 2rem;
+      max-width: 28rem;
+      margin: 0 auto;
+
+      .scheduleIcon {
+        width: 3rem;
+        height: 3rem;
+        color: $emerald-600;
+        margin: 0 auto 1rem;
+      }
+
+      .scheduleDay {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $gray-900;
+        margin-bottom: 0.5rem;
+      }
+
+      .scheduleTime {
+        color: $gray-600;
+        margin-bottom: 1rem;
+      }
+
+      .scheduleLocation {
+        font-size: 0.875rem;
+        color: $gray-500;
+      }
+    }
+
+    .scheduleNote {
+      color: $gray-600;
+      margin-top: 2rem;
+    }
+  }
+}

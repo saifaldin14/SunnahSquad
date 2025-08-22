@@ -1,0 +1,88 @@
+// Variables from globals
+$primary: #059669;
+$emerald-50: #ecfdf5;
+$emerald-600: #059669;
+$white: #ffffff;
+$gray-50: #f9fafb;
+$gray-300: #d1d5db;
+$gray-700: #374151;
+$gray-900: #111827;
+
+.navigation {
+  background: $white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 50;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  @media (min-width: 640px) {
+    padding: 0 24px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 32px;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  
+  .icon {
+    height: 32px;
+    width: 32px;
+    color: $emerald-600;
+  }
+  
+  .text {
+    font-size: 20px;
+    font-weight: 700;
+    color: $gray-900;
+  }
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.link {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  color: $gray-700;
+  text-decoration: none;
+
+  &:hover {
+    color: $emerald-600;
+    background: $gray-50;
+  }
+
+  &.active {
+    color: $emerald-600;
+    background: $emerald-50;
+  }
+}

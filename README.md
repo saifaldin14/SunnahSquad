@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SunnahSquad - Serving with Purpose
+
+SunnahSquad is a beautiful, modern website for a Muslim volunteer group that serves at Ray of Hope soup kitchen. The website showcases the group's mission, upcoming events, and important safety guidelines for volunteers.
+
+## Features
+
+### 🏠 Homepage
+- Beautiful hero section with mission statement
+- Information about SunnahSquad and Ray of Hope partnership
+- Impact statistics showing community service metrics
+- Call-to-action buttons for engagement
+
+### 📅 Events Page
+- Interactive monthly calendar showing volunteer opportunities
+- Event details with date, time, location, and available spots
+- Dynamic signup button that links to Google Forms
+- "Stay tuned" message when no signup link is available
+- Regular schedule information
+
+### 🛡️ Safety Instructions Page
+- Comprehensive safety guidelines for volunteers
+- Organized by categories: Kitchen Safety, Sharp Objects, Food Handling, etc.
+- Emergency contact information
+- Beautiful iconography and clear formatting
+
+## Design Features
+
+- **Modern, Clean Design**: Professional look with Islamic-inspired green color scheme
+- **Fully Responsive**: Works perfectly on desktop, tablet, and mobile devices
+- **Accessibility**: High contrast, readable fonts, and semantic HTML
+- **Interactive Elements**: Hover effects, smooth transitions, and engaging animations
+- **Beautiful Typography**: Inter font for modern readability
+
+## Technology Stack
+
+- **Next.js 15**: React framework with App Router
+- **TypeScript**: Type-safe development
+- **Tailwind CSS**: Utility-first CSS framework (implemented via custom CSS)
+- **React Calendar**: Interactive calendar component
+- **Lucide React**: Beautiful icon library
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+3. Open [http://localhost:3000](http://localhost:3000) to view the website
+
+## Customization
+
+### Event Management
+To update the upcoming event information, edit the `upcomingEvent` object in `src/app/events/page.tsx`:
+
+```javascript
+const upcomingEvent = {
+  date: new Date(2025, 1, 1), // February 1, 2025
+  title: "Monthly Volunteer Service at Ray of Hope",
+  time: "4:00 PM - 7:00 PM",
+  location: "Downtown Community Center",
+  description: "Join us for our monthly volunteer service...",
+  signupLink: "https://forms.google.com/your-signup-form", // Set to null to show "Stay tuned"
+  spotsAvailable: 8
+};
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Safety Instructions
+Update safety guidelines in `src/app/safety/page.tsx` by modifying the `safetyInstructions` array.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Content Updates
+- Update organization details in the homepage (`src/app/page.tsx`)
+- Modify contact information in the footer (`src/components/Footer.tsx`)
+- Adjust navigation items in (`src/components/Navigation.tsx`)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment
 
-## Learn More
+The website can be easily deployed to platforms like:
+- **Vercel** (recommended for Next.js)
+- **Netlify**
+- **Firebase Hosting**
+- Any static hosting provider
 
-To learn more about Next.js, take a look at the following resources:
+## Islamic Values Integration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The website incorporates Islamic values through:
+- Hadith and Quranic quotes about service to humanity
+- Reference to following the Sunnah (example of Prophet Muhammad PBUH)
+- Emphasis on compassion, dignity, and community service
+- Color scheme inspired by Islamic aesthetics
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contributing
 
-## Deploy on Vercel
+To contribute to this project:
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is open source and available under the MIT License.
+
+---
+
+**Built with ❤️ for community service and following the beautiful example of Prophet Muhammad (PBUH)**

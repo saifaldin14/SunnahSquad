@@ -1,16 +1,26 @@
-// Component-specific variables
+// Component-specific variables with improved contrast
+$emerald-50: #ecfdf5;
 $emerald-100: #d1fae5;
+$emerald-200: #a7f3d0;
 $emerald-600: #059669;
+$emerald-700: #047857;
+$emerald-800: #065f46;
+$emerald-900: #064e3b;
 $gray-50: #f9fafb;
+$gray-100: #f3f4f6;
+$gray-200: #e5e7eb;
 $gray-300: #d1d5db;
+$gray-400: #9ca3af;
 $gray-500: #6b7280;
 $gray-600: #4b5563;
 $gray-700: #374151;
+$gray-800: #1f2937;
 $gray-900: #111827;
+$white: #ffffff;
 
-// Component-specific mixins
+// Component-specific mixins with improved contrast
 @mixin gradient-bg {
-  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  background: linear-gradient(135deg, $emerald-700 0%, $emerald-600 100%);
 }
 
 @mixin section-padding {
@@ -22,12 +32,12 @@ $gray-900: #111827;
 }
 
 @mixin card {
-  background: white;
+  background: $white;
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  border: 1px solid #e5e7eb;
+  border: 1px solid $gray-200;
 }
 
 @mixin btn-primary {
@@ -41,11 +51,11 @@ $gray-900: #111827;
   transition: all 0.2s ease-in-out;
   border: none;
   cursor: pointer;
-  background-color: $emerald-600;
-  color: white;
+  background-color: $emerald-700;
+  color: $white;
 
   &:hover {
-    background-color: #047857;
+    background-color: $emerald-800;
     transform: translateY(-1px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
@@ -98,9 +108,10 @@ $gray-900: #111827;
 
       .heroSubtitle {
         font-size: 1.25rem;
-        color: $emerald-100;
+        color: $emerald-50;
         max-width: 48rem;
         margin: 0 auto;
+        opacity: 0.95;
       }
     }
   }
@@ -149,8 +160,9 @@ $gray-900: #111827;
     }
 
     p {
-      color: $gray-600;
+      color: $gray-700;
       margin-bottom: 1.5rem;
+      line-height: 1.6;
     }
   }
 
@@ -162,12 +174,83 @@ $gray-900: #111827;
       width: 100%;
       border: none;
       font-family: inherit;
+      background: transparent;
+
+      .react-calendar__navigation {
+        background: transparent;
+        
+        button {
+          color: $gray-900;
+          background: transparent;
+          border: none;
+          font-weight: 600;
+          
+          &:hover {
+            background-color: $gray-100;
+          }
+          
+          &:disabled {
+            color: $gray-400;
+          }
+        }
+      }
+
+      .react-calendar__month-view__weekdays {
+        .react-calendar__month-view__weekdays__weekday {
+          color: $gray-700;
+          font-weight: 600;
+          font-size: 0.875rem;
+          text-decoration: none;
+        }
+      }
 
       .react-calendar__tile {
+        background: transparent;
+        color: $gray-900;
+        border: none;
+        padding: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        
+        &:hover {
+          background-color: $gray-100;
+          color: $gray-900;
+        }
+        
+        &:focus {
+          background-color: $gray-200;
+          color: $gray-900;
+        }
+
+        &.react-calendar__tile--active {
+          background-color: $emerald-100;
+          color: $emerald-800;
+          
+          &:hover {
+            background-color: $emerald-200;
+            color: $emerald-900;
+          }
+        }
+
+        &.react-calendar__tile--now {
+          background-color: $gray-200;
+          color: $gray-900;
+          
+          &:hover {
+            background-color: $gray-300;
+          }
+        }
+
         &.event-date {
-          background-color: $emerald-600 !important;
-          color: white !important;
+          background-color: $emerald-700 !important;
+          color: $white !important;
           border-radius: 50% !important;
+          font-weight: 600 !important;
+          
+          &:hover {
+            background-color: $emerald-800 !important;
+            color: $white !important;
+          }
         }
       }
     }
@@ -176,12 +259,13 @@ $gray-900: #111827;
   .legend {
     @include card;
     padding: 1rem;
-    border: 1px solid #e5e7eb;
+    border: 1px solid $gray-200;
 
     h3 {
       font-weight: 600;
       color: $gray-900;
       margin-bottom: 0.5rem;
+      font-size: 1rem;
     }
 
     .legendItems {
@@ -200,17 +284,19 @@ $gray-900: #111827;
           border-radius: 0.25rem;
 
           &.eventColor {
-            background-color: $emerald-600;
+            background-color: $emerald-700;
           }
 
           &.noEventColor {
             background-color: $gray-300;
+            border: 1px solid $gray-500;
           }
         }
 
         .legendText {
           font-size: 0.875rem;
-          color: $gray-700;
+          color: $gray-800;
+          font-weight: 500;
         }
       }
     }
@@ -246,7 +332,8 @@ $gray-900: #111827;
       }
 
       p {
-        color: $gray-600;
+        color: $gray-700;
+        line-height: 1.6;
       }
     }
 
@@ -264,11 +351,13 @@ $gray-900: #111827;
         .icon {
           width: 1.25rem;
           height: 1.25rem;
-          color: $emerald-600;
+          color: $emerald-700;
+          flex-shrink: 0;
         }
 
         .text {
-          color: $gray-700;
+          color: $gray-800;
+          font-weight: 500;
         }
       }
     }
@@ -287,14 +376,16 @@ $gray-900: #111827;
       padding: 1rem 0;
 
       .mainText {
-        color: $gray-600;
+        color: $gray-700;
         font-size: 1.125rem;
+        font-weight: 600;
       }
 
       .subText {
         font-size: 0.875rem;
-        color: $gray-500;
+        color: $gray-600;
         margin-top: 0.5rem;
+        line-height: 1.5;
       }
     }
   }
@@ -313,16 +404,19 @@ $gray-900: #111827;
     .expectationList {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
-      color: $gray-700;
+      gap: 0.75rem;
+      color: $gray-800;
 
       .expectationItem {
         display: flex;
         align-items: flex-start;
-        gap: 0.5rem;
+        gap: 0.75rem;
+        line-height: 1.6;
 
         .bullet {
-          color: $emerald-600;
+          color: $emerald-700;
+          font-weight: 700;
+          font-size: 1.125rem;
         }
       }
     }
@@ -331,7 +425,7 @@ $gray-900: #111827;
 
 .scheduleSection {
   @include section-padding;
-  background-color: white;
+  background-color: $gray-100;
 
   .scheduleContent {
     max-width: 64rem;
@@ -358,8 +452,9 @@ $gray-900: #111827;
 
     .scheduleDescription {
       font-size: 1.125rem;
-      color: $gray-600;
+      color: $gray-700;
       margin-bottom: 2rem;
+      line-height: 1.6;
     }
 
     .scheduleCard {
@@ -371,7 +466,7 @@ $gray-900: #111827;
       .scheduleIcon {
         width: 3rem;
         height: 3rem;
-        color: $emerald-600;
+        color: $emerald-700;
         margin: 0 auto 1rem;
       }
 
@@ -383,19 +478,22 @@ $gray-900: #111827;
       }
 
       .scheduleTime {
-        color: $gray-600;
+        color: $gray-700;
         margin-bottom: 1rem;
+        font-weight: 500;
       }
 
       .scheduleLocation {
         font-size: 0.875rem;
-        color: $gray-500;
+        color: $gray-600;
+        line-height: 1.5;
       }
     }
 
     .scheduleNote {
-      color: $gray-600;
+      color: $gray-700;
       margin-top: 2rem;
+      line-height: 1.6;
     }
   }
 }

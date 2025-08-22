@@ -236,11 +236,49 @@ export default function Events() {
         </div>
       </section>
 
-      <style jsx>{`
+      <style jsx global>{`
+        .react-calendar {
+          background: white !important;
+        }
+
+        .react-calendar__navigation button {
+          color: #111827 !important;
+        }
+
+        .react-calendar__month-view__weekdays__weekday {
+          color: #374151 !important;
+        }
+
+        .react-calendar__tile {
+          color: #111827 !important;
+          background: transparent !important;
+        }
+
+        .react-calendar__tile:hover {
+          background-color: #f3f4f6 !important;
+          color: #111827 !important;
+        }
+
+        .react-calendar__tile--active {
+          background-color: #d1fae5 !important;
+          color: #065f46 !important;
+        }
+
+        .react-calendar__tile--now {
+          background-color: #e5e7eb !important;
+          color: #111827 !important;
+        }
+
         .event-date {
-          background-color: var(--primary) !important;
+          background-color: #047857 !important;
           color: white !important;
           border-radius: 50% !important;
+          font-weight: 600 !important;
+        }
+
+        .event-date:hover {
+          background-color: #065f46 !important;
+          color: white !important;
         }
       `}</style>
     </div>

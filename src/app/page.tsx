@@ -69,8 +69,8 @@ export default function Home() {
             </div>
             <div className={styles.quoteCard}>
               <blockquote className={styles.quote}>
-                &ldquo;The believer is not one who eats his fill while his neighbor
-                goes hungry.&rdquo;
+                &ldquo;The believer is not one who eats his fill while his
+                neighbor goes hungry.&rdquo;
               </blockquote>
               <cite className={styles.citation}>- Prophet Muhammad (PBUH)</cite>
             </div>
@@ -136,8 +136,8 @@ export default function Home() {
               <p className={styles.partnershipDescription}>
                 Ray of Hope is a vital community resource that provides warm
                 meals, compassion, and hope to individuals experiencing
-                homelessness. As their volunteers, we&apos;re honored to be part of
-                this important work.
+                homelessness. As their volunteers, we&apos;re honored to be part
+                of this important work.
               </p>
               <div className={styles.detailsList}>
                 <div className={styles.detailItem}>
@@ -189,7 +189,8 @@ export default function Home() {
           <h2 className={styles.ctaTitle}>Join Us in Making a Difference</h2>
           <p className={styles.ctaDescription}>
             Whether you&apos;re experienced in community service or just getting
-            started, there&apos;s a place for you in SunnahSquad. Come serve with us!
+            started, there&apos;s a place for you in SunnahSquad. Come serve
+            with us!
           </p>
           <Link href="/events" className={styles.ctaButton}>
             <Calendar className="w-5 h-5" />

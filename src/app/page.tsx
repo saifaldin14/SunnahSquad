@@ -1,5 +1,15 @@
 import Link from "next/link";
-import { Heart, Users, Utensils, Clock, MapPin, Calendar } from "lucide-react";
+import {
+  Heart,
+  Users,
+  Utensils,
+  Clock,
+  MapPin,
+  Calendar,
+  Star,
+  Sparkles,
+  Award,
+} from "lucide-react";
 import styles from "./page.module.scss";
 
 export default function Home() {
@@ -7,9 +17,18 @@ export default function Home() {
     <div className={styles.homepage}>
       {/* Hero Section */}
       <section className={styles.hero}>
+        <div className={styles.heroBackground}>
+          <div className={styles.floatingElement}></div>
+          <div className={styles.floatingElement}></div>
+          <div className={styles.floatingElement}></div>
+        </div>
         <div className={styles.container}>
           <div className={styles.content}>
-            <h1 className={styles.title}>SunnahSquad</h1>
+            <div className={styles.titleWrapper}>
+              <Sparkles className={styles.sparkle} />
+              <h1 className={styles.title}>SunnahSquad</h1>
+              <Sparkles className={styles.sparkle} />
+            </div>
             <p className={styles.subtitle}>
               Following the beautiful example of Prophet Muhammad (PBUH) in
               serving our community with love, compassion, and purpose
@@ -18,6 +37,7 @@ export default function Home() {
               <Link href="/events" className={styles.primaryBtn}>
                 <Calendar className="w-5 h-5" />
                 Join Our Next Event
+                <div className={styles.btnShine}></div>
               </Link>
               <Link href="/safety" className={styles.secondaryBtn}>
                 <Heart className="w-5 h-5" />
@@ -32,7 +52,14 @@ export default function Home() {
       <section className={`${styles.section} ${styles.grayBg}`}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Who We Are</h2>
+            <div className={styles.badgeWrapper}>
+              <Star className={styles.badgeIcon} />
+              <span className={styles.badge}>Who We Are</span>
+            </div>
+            <h2 className={styles.sectionTitle}>
+              Serving with <span className={styles.highlight}>Purpose</span> &{" "}
+              <span className={styles.highlight}>Love</span>
+            </h2>
             <p className={styles.sectionDescription}>
               SunnahSquad is a dedicated group of Muslim volunteers who serve at
               Ray of Hope, a local soup kitchen providing meals to our homeless
@@ -42,25 +69,40 @@ export default function Home() {
           </div>
 
           <div className={`${styles.grid} ${styles.twoCols}`}>
-            <div>
+            <div className={styles.missionWrapper}>
               <h3 className={styles.missionTitle}>Our Mission</h3>
               <div className={styles.missionList}>
-                <div className={styles.missionItem}>
-                  <Heart className={styles.icon} />
+                <div
+                  className={styles.missionItem}
+                  style={{ "--delay": "0s" } as React.CSSProperties}
+                >
+                  <div className={styles.iconContainer}>
+                    <Heart className={styles.icon} />
+                  </div>
                   <p className={styles.text}>
                     Serve the homeless community with dignity, respect, and
                     compassion
                   </p>
                 </div>
-                <div className={styles.missionItem}>
-                  <Users className={styles.icon} />
+                <div
+                  className={styles.missionItem}
+                  style={{ "--delay": "0.5s" } as React.CSSProperties}
+                >
+                  <div className={styles.iconContainer}>
+                    <Users className={styles.icon} />
+                  </div>
                   <p className={styles.text}>
                     Build bridges between the Muslim community and our broader
                     neighbors
                   </p>
                 </div>
-                <div className={styles.missionItem}>
-                  <Utensils className={styles.icon} />
+                <div
+                  className={styles.missionItem}
+                  style={{ "--delay": "1s" } as React.CSSProperties}
+                >
+                  <div className={styles.iconContainer}>
+                    <Utensils className={styles.icon} />
+                  </div>
                   <p className={styles.text}>
                     Provide nutritious, halal meals prepared with love and care
                   </p>
@@ -68,6 +110,9 @@ export default function Home() {
               </div>
             </div>
             <div className={styles.quoteCard}>
+              <div className={styles.quoteDecoration}>
+                <Sparkles className={styles.decorationIcon} />
+              </div>
               <blockquote className={styles.quote}>
                 &ldquo;The believer is not one who eats his fill while his
                 neighbor goes hungry.&rdquo;
@@ -82,7 +127,13 @@ export default function Home() {
       <section className={styles.section}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Our Impact</h2>
+            <div className={styles.badgeWrapper}>
+              <Award className={styles.badgeIcon} />
+              <span className={styles.badge}>Our Impact</span>
+            </div>
+            <h2 className={styles.sectionTitle}>
+              Making a <span className={styles.highlight}>Real Difference</span>
+            </h2>
             <p className={styles.sectionDescription}>
               Through our regular service at Ray of Hope, we&apos;re making a
               meaningful difference in our community, one meal at a time.
@@ -91,6 +142,7 @@ export default function Home() {
 
           <div className={`${styles.grid} ${styles.threeCols}`}>
             <div className={styles.impactCard}>
+              <div className={styles.cardGlow}></div>
               <div className={styles.iconWrapper}>
                 <Utensils className={styles.icon} />
               </div>
@@ -98,9 +150,13 @@ export default function Home() {
               <p className={styles.description}>
                 Meals served to our homeless neighbors
               </p>
+              <div className={styles.cardFooter}>
+                <span className={styles.trend}>↗ Growing monthly</span>
+              </div>
             </div>
 
             <div className={styles.impactCard}>
+              <div className={styles.cardGlow}></div>
               <div className={styles.iconWrapper}>
                 <Users className={styles.icon} />
               </div>
@@ -108,9 +164,13 @@ export default function Home() {
               <p className={styles.description}>
                 Active volunteers from our community
               </p>
+              <div className={styles.cardFooter}>
+                <span className={styles.trend}>↗ Always welcoming more</span>
+              </div>
             </div>
 
             <div className={styles.impactCard}>
+              <div className={styles.cardGlow}></div>
               <div className={styles.iconWrapper}>
                 <Clock className={styles.icon} />
               </div>
@@ -118,6 +178,9 @@ export default function Home() {
               <p className={styles.description}>
                 Months of consistent weekly service
               </p>
+              <div className={styles.cardFooter}>
+                <span className={styles.trend}>↗ Building lasting impact</span>
+              </div>
             </div>
           </div>
         </div>

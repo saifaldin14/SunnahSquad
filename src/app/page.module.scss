@@ -474,6 +474,99 @@ $shadow-emerald: 0 10px 25px -5px rgba(4, 120, 87, 0.2), 0 4px 6px -2px rgba(4, 
         align-items: center;
       }
     }
+
+    // About section stats
+    .aboutStats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 32px;
+      margin-top: 60px;
+      padding-bottom: 5rem;
+      
+      .statItem {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 32px 24px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        box-shadow: 0 8px 25px rgba(16, 185, 129, 0.1);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.05), transparent);
+          transition: left 0.6s ease;
+        }
+        
+        &:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 15px 40px rgba(16, 185, 129, 0.15);
+          border-color: rgba(16, 185, 129, 0.3);
+          
+          &::before {
+            left: 100%;
+          }
+          
+          .statIcon {
+            transform: scale(1.1);
+            animation: glow 2s ease-in-out infinite;
+          }
+        }
+        
+        .statIcon {
+          width: 64px;
+          height: 64px;
+          background: linear-gradient(135deg, $emerald-500, $emerald-600, $emerald-700);
+          border-radius: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 8px 16px rgba($emerald-500, 0.3);
+          transition: all 0.3s ease;
+          
+          .icon {
+            width: 32px;
+            height: 32px;
+            color: $white;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+          }
+        }
+        
+        .statContent {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          
+          .statNumber {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, $emerald-600, $emerald-700);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+          }
+          
+          .statLabel {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: $gray-600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+          }
+        }
+      }
+    }
   }
 
   // Mission and quote section styles
@@ -883,6 +976,74 @@ $shadow-emerald: 0 10px 25px -5px rgba(4, 120, 87, 0.2), 0 4px 6px -2px rgba(4, 
   }
 
   // Partnership section styles
+  .partnershipContent {
+    .detailsList {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .detailItem {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 24px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+      backdrop-filter: blur(20px);
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateX(8px);
+        box-shadow: 0 12px 30px rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.98);
+      }
+
+      .detailIcon {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+
+        .icon {
+          width: 24px;
+          height: 24px;
+          color: $emerald-600;
+        }
+      }
+
+      .detailContent {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        .detailLabel {
+          font-size: 0.875rem;
+          font-weight: 700;
+          color: rgba(255, 255, 255, 0.7);
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .detailText {
+          font-size: 1rem;
+          font-weight: 600;
+          color: rgba(255, 255, 255, 0.95);
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+
   .partnershipDescription {
     font-size: 1.25rem;
     color: rgba(255, 255, 255, 0.95);
@@ -917,9 +1078,123 @@ $shadow-emerald: 0 10px 25px -5px rgba(4, 120, 87, 0.2), 0 4px 6px -2px rgba(4, 
 
   .activitiesCard {
     @include glass-card;
-    padding: 32px;
-    background: rgba(255, 255, 255, 0.98);
+    padding: 40px 36px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.92));
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+      0 20px 40px rgba(16, 185, 129, 0.1),
+      0 8px 16px rgba(0, 0, 0, 0.05);
 
+    .cardGlow {
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(45deg, $emerald-400, $emerald-500, $emerald-600, $emerald-500, $emerald-400);
+      border-radius: 26px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      filter: blur(8px);
+    }
+
+    &:hover .cardGlow {
+      opacity: 1;
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    .cardHeader {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+
+      .cardIconWrapper {
+        width: 56px;
+        height: 56px;
+        background: linear-gradient(135deg, $emerald-500, $emerald-600);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 6px 12px rgba($emerald-500, 0.3);
+
+        .cardIcon {
+          width: 28px;
+          height: 28px;
+          color: $white;
+        }
+      }
+
+      .cardTitle {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: $gray-900;
+        margin: 0;
+        letter-spacing: -0.01em;
+      }
+    }
+
+    .activitiesList {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .activityItem {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(16, 185, 129, 0.02));
+      border-radius: 14px;
+      border: 1px solid rgba(16, 185, 129, 0.1);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateX(4px);
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+        border-color: rgba(16, 185, 129, 0.2);
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+
+        .activityIcon {
+          transform: scale(1.1);
+          background: linear-gradient(135deg, $emerald-600, $emerald-700);
+        }
+      }
+
+      .activityIcon {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, $emerald-500, $emerald-600);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+
+        .icon {
+          width: 20px;
+          height: 20px;
+          color: $white;
+        }
+      }
+
+      span:last-child {
+        color: $gray-700;
+        line-height: 1.5;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+    }
+
+    // Legacy styles for backward compatibility
     .cardTitle {
       font-size: 1.5rem;
       font-weight: 700;
@@ -928,33 +1203,11 @@ $shadow-emerald: 0 10px 25px -5px rgba(4, 120, 87, 0.2), 0 4px 6px -2px rgba(4, 
       text-align: center;
     }
 
-    .activitiesList {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .activityItem {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 12px 0;
-
-      .bullet {
-        color: $emerald-600;
-        font-weight: 700;
-        font-size: 1.2rem;
-        flex-shrink: 0;
-      }
-
-      span:last-child {
-        color: $gray-700;
-        line-height: 1.5;
-        font-weight: 500;
-      }
+    .bullet {
+      color: $emerald-600;
+      font-weight: 700;
+      font-size: 1.2rem;
+      flex-shrink: 0;
     }
   }
 
@@ -977,7 +1230,7 @@ $shadow-emerald: 0 10px 25px -5px rgba(4, 120, 87, 0.2), 0 4px 6px -2px rgba(4, 
     }
 
     .ctaContainer {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 0 20px;
       position: relative;
@@ -988,45 +1241,163 @@ $shadow-emerald: 0 10px 25px -5px rgba(4, 120, 87, 0.2), 0 4px 6px -2px rgba(4, 
       }
     }
 
+    .ctaContent {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .ctaIconWrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+      backdrop-filter: blur(20px);
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+
+      .ctaIcon {
+        width: 48px;
+        height: 48px;
+        color: $white;
+        animation: float 4s ease-in-out infinite;
+      }
+
+      .ctaSparkle {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        width: 24px;
+        height: 24px;
+        color: rgba(255, 255, 255, 0.8);
+        animation: sparkle 3s ease-in-out infinite;
+      }
+    }
+
     .ctaTitle {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 24px;
+      font-size: 2.75rem;
+      font-weight: 900;
+      margin: 0;
       letter-spacing: -0.02em;
-      line-height: 1.2;
+      line-height: 1.1;
+      background: linear-gradient(135deg, $white, rgba(255, 255, 255, 0.8));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
 
       @media (min-width: 768px) {
-        font-size: 3rem;
+        font-size: 3.5rem;
       }
     }
 
     .ctaDescription {
-      font-size: 1.25rem;
-      margin-bottom: 40px;
+      font-size: 1.375rem;
       color: rgba(255, 255, 255, 0.9);
       line-height: 1.6;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 700px;
+      margin: 0;
+      font-weight: 500;
 
       @media (min-width: 768px) {
-        font-size: 1.375rem;
+        font-size: 1.5rem;
+      }
+    }
+
+    .ctaActions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      width: 100%;
+
+      @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: center;
+        gap: 48px;
       }
     }
 
     .ctaButton {
       @include button-base;
-      background: rgba(255, 255, 255, 0.95);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
       color: $emerald-700;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(15px);
       font-weight: 700;
-      padding: 18px 36px;
-      font-size: 1.125rem;
+      padding: 20px 40px;
+      font-size: 1.25rem;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 
+        0 8px 25px rgba(255, 255, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      position: relative;
+      overflow: hidden;
+
+      .btnShine {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        animation: shine 2s ease-in-out infinite;
+      }
 
       &:hover {
         background: $white;
-        transform: translateY(-3px);
-        box-shadow: $shadow-xl;
+        transform: translateY(-4px);
+        box-shadow: 
+          0 15px 40px rgba(255, 255, 255, 0.3),
+          0 8px 16px rgba(0, 0, 0, 0.1);
+        border-color: rgba(255, 255, 255, 0.5);
+        
+        .btnShine {
+          animation-duration: 1s;
+        }
+      }
+    }
+
+    .ctaStats {
+      display: flex;
+      gap: 32px;
+      
+      @media (max-width: 767px) {
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+
+    .ctaStat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 20px 24px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+      backdrop-filter: blur(15px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+
+      .ctaStatNumber {
+        font-size: 2rem;
+        font-weight: 800;
+        color: $white;
+        line-height: 1;
+      }
+
+      .ctaStatLabel {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.8);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-align: center;
       }
     }
   }
